@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const session = require('express-session')
 // const dbConnection = require('./database') 
 const MongoStore = require('connect-mongo')(session)
@@ -18,7 +19,7 @@ var exphbs = require('express-handlebars');
 // )
 // app.use(passport.initialize())
 // app.use(passport.session()) 
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static('public'));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: false }));
