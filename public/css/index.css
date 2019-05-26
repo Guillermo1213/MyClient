@@ -8,7 +8,8 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  background-color: gray;
+  background-image: url("https://images.pexels.com/photos/760720/pexels-photo-760720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
+  filter: grayscale(10%);
   min-height: 100%;
 }
 
