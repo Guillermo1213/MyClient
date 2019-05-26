@@ -1,0 +1,32 @@
+{
+  "name": "MyClient",
+  "version": "1.0.0",
+  "description": "Calendar app seeking to bridge the gap between scheduling an appointment and keeping track of monthly authorized hours.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guillermo1213/MyClient.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guillermo1213/MyClient/issues"
+  },
+  "homepage": "https://github.com/Guillermo1213/MyClient#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^2.0.3",
+    "express": "^4.17.0",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.1",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
