@@ -1,11 +1,10 @@
 const User = require('../database/models/user')
 const LocalStrategy = require('passport-local').Strategy
+const express = require('express')
+const app = express();
 
 const strategy = new LocalStrategy(
-	{
-		usernameField: 'username' // not necessary, DEFAULT
-	},
-	function(username, password, done) {
+	function (username, password, done) {
 		User.findOne({ username: username }, (err, user) => {
 			if (err) {
 				return done(err)
@@ -20,5 +19,13 @@ const strategy = new LocalStrategy(
 		})
 	}
 )
+
+// app.post('/',
+// 	passport.authenticate('local', { failureRedirect: '/error' }),
+
+// 	function (req, res) {
+// 		res.redirect('/success?username=' + req.user.username);
+// 	}
+// );
 
 module.exports = strategy

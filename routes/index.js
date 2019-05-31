@@ -1,4 +1,14 @@
-// var express = require('express');
-// var router = express.Router();
+const express = require('express')
+const router = express.Router()
+// const User = require('../database/models/user')
+// const passport = require('../passport')
 
-// router.get('/', (req, res) => res.render('index', info))
+router.get('/', (req, res) => {
+    res.render('index');
+})
+
+// router.get('/login', (req, res) => {
+//     res.render('login');
+// })
+
+module.exports = router
