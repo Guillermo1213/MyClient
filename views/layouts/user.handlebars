@@ -10,8 +10,9 @@
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>MyClient - Monthly Hour Calendar &amp; Tracker</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>MyClient - Dashboard</title>
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -19,17 +20,16 @@
 </head>
 
 <body>
-  <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar w3-white w3-card" id="myNavbar">
-      <a href="#home" class="w3-bar-item w3-button w3-wide">MyClient</a>
-      <!-- Right-sided navbar links -->
+      <a href="/" class="w3-bar-item w3-button w3-wide">MyClient</a>
       <div class="w3-right w3-hide-small">
+        <a href="/event/add" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
+        <a href="/client/view" class="w3-bar-item w3-button"><i class="fa fa-child"></i> CLIENTS</a>
+        <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
         <a href="/user/logout" class="w3-bar-item w3-button">LOGOUT</a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
+
       </div>
-      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
         onclick="w3_open()">
@@ -38,13 +38,13 @@
     </div>
   </div>
 
-  <!-- Sidebar on small screens when clicking the menu icon -->
   <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
     style="display:none" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">&lt;&lt; </a>
+    <a href="/event/add" onclick="w3_close()" class="w3-bar-item w3-button">ADD EVENT</a>
+    <a href="/client/view" onclick="w3_close()" class="w3-bar-item w3-button">CLIENTS</a>
+    <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">SUPPORT</a>
     <a href="/user/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">ADD EVENT</a>
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">SUPPORT</a>
   </nav>
 
   {{{ body }}}

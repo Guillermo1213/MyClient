@@ -1,5 +1,5 @@
 import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid'
+// import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import '@fullcalendar/core/main.css'
 import '@fullcalendar/daygrid/main.css'
@@ -8,8 +8,9 @@ import '@fullcalendar/timegrid/main.css'
 var calendarEl = document.getElementById('calendar');
 
 let calendar = new Calendar(calendarEl, {
-    plugins: [dayGridPlugin, timeGridPlugin],
-    schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+    plugins: [timeGridPlugin],
+    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+    defaultView: 'timeGridWeek',
     // put your options and callbacks here
     contentHeight: 600,
     // eventClick: editEvent,
@@ -17,11 +18,8 @@ let calendar = new Calendar(calendarEl, {
     // editable: true,
     eventLimit: false,
     allDaySlot: false,
-    minTime: "08:00:00",
+    minTime: "06:00:00",
     maxTime: "20:00:00",
-    footer: {
-        center: 'addEventButton'
-    },
     header: {
         center: 'month, agendaWeek, agendaDay',
         right: 'prev, next'
