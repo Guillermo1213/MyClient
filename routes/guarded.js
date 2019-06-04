@@ -5,7 +5,7 @@ const passport = require('../passport')
 
 
 router.get('/', checkAuthentication, (req, res) => {
-    res.render('dashboard', {title: 'dashboard', layout: 'register'});
+    res.render('dashboard', {title: 'dashboard', layout: 'user'});
 })
 function checkAuthentication(req,res,next){
     if(req.isAuthenticated()){

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "webpack && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,16 +19,31 @@
   },
   "homepage": "https://github.com/Guillermo1213/MyClient#readme",
   "dependencies": {
+    "@fullcalendar/core": "^4.1.0",
+    "@fullcalendar/daygrid": "^4.1.0",
+    "@fullcalendar/timegrid": "^4.2.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.3.1",
     "connect-mongo": "^2.0.3",
+    "css-loader": "^2.1.1",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.1",
+    "fullcalendar": "^3.10.0",
+    "fullcalendar-scheduler": "^1.9.4",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.11",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "script-loader": "^0.7.2",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.32.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.2"
   }
 }

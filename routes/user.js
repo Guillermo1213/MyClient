@@ -4,9 +4,17 @@ const User = require('../database/models/user')
 const passport = require('../passport')
 
 
-router.get('/', (req, res) => {
-    res.render('login');
+router.get('/', checkAuthentication, (req, res) => {
+    res.redirect('/dashboard');
 })
+function checkAuthentication(req,res,next){
+    if(req.isAuthenticated()){
+        next();
+    } 
+    else{
+        res.render('login');
+    }
+}
 
 router.get('/signup', (req, res) => {
     res.render('signup');
