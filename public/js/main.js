@@ -1,40 +1,65 @@
 import { Calendar } from '@fullcalendar/core';
-// import dayGridPlugin from '@fullcalendar/daygrid'
+import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import '@fullcalendar/core/main.css'
 import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
+import axios from "axios"
 
-var calendarEl = document.getElementById('calendar');
+var eventData;
 
-let calendar = new Calendar(calendarEl, {
-    plugins: [timeGridPlugin],
-    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-    defaultView: 'timeGridWeek',
-    // put your options and callbacks here
-    contentHeight: 600,
-    // eventClick: editEvent,
-    selectable: true,
-    // editable: true,
-    eventLimit: false,
-    allDaySlot: false,
-    minTime: "06:00:00",
-    maxTime: "20:00:00",
-    header: {
-        center: 'month, agendaWeek, agendaDay',
-        right: 'prev, next'
-    },
-    customButtons: {
-        // addEventButton: {
-        //     text: 'Add Event',
-        //     // click: addEvent,
-        //     click: openModal,
-        // }
+async function getEvents() {
+    try {
+        const res = await axios
+            .get('/event/view');
+        eventData = (res.data[0].events);
+        return eventData;
     }
+    catch (err) {
+        return console.log(err);
+    }
+}
 
-});
+document.addEventListener('DOMContentLoaded', function () {
 
-calendar.render();
+    var calendarEl = document.getElementById('calendar');
+
+    let calendar = new Calendar(calendarEl, {
+        plugins: [timeGridPlugin, dayGridPlugin],
+        schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+        defaultView: 'timeGridWeek',
+        contentHeight: 600,
+        // eventClick: editEvent,
+        selectable: true,
+        // editable: true,
+        eventLimit: false,
+        allDaySlot: false,
+        minTime: "06:00:00",
+        maxTime: "20:00:00",
+        header: {
+            center: 'month, agendaWeek, agendaDay',
+            right: 'prev, next'
+        },
+        customButtons: {
+            // addEventButton: {
+            //     text: 'Add Event',
+            //     // click: addEvent,
+            //     click: openModal,
+            // }
+        }
+
+    });
+
+    calendar.render();
+
+    getEvents().then(eventData => {
+        return calendar.addEventSource(eventData)
+    })
+
+})
+
+
+
 
 
 

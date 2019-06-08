@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const userRoute = require('./routes/user')
 const routes = require('./routes/index')
+const eventRoute = require('./routes/event')
 const guardedRoutes = require('./routes/guarded')
 var exphbs = require('express-handlebars');
 
@@ -31,6 +32,7 @@ app.use(express.json());
 app.use('/', routes)
 app.use('/user', userRoute)
 app.use('/dashboard', guardedRoutes)
+app.use('/event', eventRoute)
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
