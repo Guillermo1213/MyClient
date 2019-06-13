@@ -9,7 +9,6 @@ import '../css/main.css'
 import axios from "axios"
 
 var eventData;
-var clientHours;
 
 async function getEvents() {
     try {
@@ -22,18 +21,6 @@ async function getEvents() {
         return console.log(err);
     }
 }
-
-// async function getClientHours() {
-//     try {
-//         const res = await axios
-//             .get('/client/view');
-//         clientHours = (res);
-//         return clientHours
-//     }
-//     catch (err) {
-//         return console.log(err);
-//     }
-// }
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -68,42 +55,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     calendar.render();
 
-    // getClientHours().then(clientHours => {
-    //     return 
-    // })
-
     getEvents().then(eventData => {
         return calendar.addEventSource(eventData)
     })
 
-    // datePicker();
-
+    datePicker();
 })
 
-// function addEvent(){
-//     openModal
-// }
-
-// function openModal() {
-//     $(".modal").css("display", "inline");
-
-//     $("#close").on('click', function () {
-//         $(".modal").css("display", "none");
-//     });
-// }
-
-// function datePicker() {
-//     $("#datepicker").datepicker();$.datepicker.setDefaults({
-//         showOn: "both",
-//         buttonImageOnly: true,
-//         buttonImage: "calendar.gif",
-//         buttonText: "Calendar"
-//       });
-//     // $("#format").on("change", function () {
-//     //     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-//     // });
-// }
-
+function datePicker(){$.datepicker.setDefaults({
+    showOn: "both",
+    buttonImageOnly: true,
+    buttonImage: "calendar.gif",
+    buttonText: "Calendar"
+});}
+// $("#format").on("change", function () {
+//     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+// });
 
 
 

@@ -1,7 +1,91 @@
-<div id="main_display" class="container-fluid" style="padding:48px">
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <h1><span id="close">&times;</span></h1>
+<div id="main_display" class="w3-container-fluid" style="padding-top:48px">
+    <div class="w3-row">
+        <div id='clientTable' style="margin: 2%" class="w3-col sm12 m12 l4">
+            <h3 style="text-align: center; font-weight: bold" class="">Available Hours</h3>
+            <table class="w3-table-all">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sup</th>
+                    <th scope="col">PE</th>
+                    <th scope="col">Ind</th>
+                </tr>
+                {{#each clients}}
+                <tr>
+                    <th scope="row">
+                        {{Name}}
+                    </th>
+                    <td id="supColumn">
+                        {{#each Current_Month}}
+                        {{#thisMonth Month}}
+                        {{Sup}}
+                        {{/thisMonth}}
+                        {{/each}}
+                    </td>
+                    <td id="peColumn">
+                        {{#each Current_Month}}
+                        {{#thisMonth Month}}
+                        {{PE}}
+                        {{/thisMonth}}
+                        {{/each}}
+                    </td>
+                    <td id="indColumn">
+                        {{#each Current_Month}}
+                        {{#thisMonth Month}}
+                        {{Ind}}
+                        {{/thisMonth}}
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div id='calendar' style="margin: 1%" class="w3-col sm12 m12 l7"></div>
+    </div>
+    <div id="clientModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container">
+                <span class="w3-button" onclick="document.getElementById('clientModal').style.display='none'" id="close">&times;</span>
+            </header>
+            <div class="w3-bar w3-border-bottom">
+                {{#each clients}}
+                <button class="tablink w3-bar-item w3-button" onclick="openClient(event, '{{Name}}')">
+                    {{Name}}
+                </button>
+                {{/each}}
+            </div>
+            {{#each clients}}
+            <div id="{{Name}}" class="w3-container client">
+                <h1 style="text-align: center">Monthly Authorized</h1>
+                <table class="w3-table w3-bordered">
+                    <tr>
+                        <th style="text-align: center" scope="col">Sup</th>
+                        <th style="text-align: center" scope="col">PE</th>
+                        <th style="text-align: center" scope="col">Ind</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center">{{Monthly_Auth.Sup}}</td>
+                        <td style="text-align: center">{{Monthly_Auth.PE}}</td>
+                        <td style="text-align: center">{{Monthly_Auth.Ind}}</td>
+                    </tr>
+                </table>
+            </div>
+            {{/each}}
+            <div class="w3-container w3-padding">
+                <button class="w3-button w3-right w3-white w3-border" onclick="event.preventDefault();">
+                    Edit
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="eventModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <h1><span onclick="document.getElementById('eventModal').style.display='none'" id="close">&times;</span>
+            </h1>
+            <script>
+                $(function () {
+                    $("#datepicker").datepicker();
+                });
+            </script>
             <form>
                 <div class="row">
                     <div class="col">
@@ -111,49 +195,22 @@
             </form>
         </div>
     </div>
-    <div class="row">
-        <div id='client_section' class="col-lg-4 col-xs-12">
-            <table class="w3-table-all col-12">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Sup</th>
-                        <th scope="col">PE</th>
-                        <th scope="col">Ind</th>
-                    </tr>
-                    {{#each clients}}
-                    <tr>
-                        <th scope="row">
-                            {{Name}}
-                        </th>
-                        <td id="supColumn">
-                            {{#each Current_Month}}
-                            {{#thisMonth Month}}
-                            {{Sup}}
-                            {{/thisMonth}}
-                            {{/each}}
-                        </td>
-                        <td id="peColumn">
-                            {{#each Current_Month}}
-                            {{#thisMonth Month}}
-                            {{PE}}
-                            {{/thisMonth}}
-                            {{/each}}
-                        </td>
-                        <td id="indColumn">
-                            {{#each Current_Month}}
-                            {{#thisMonth Month}}
-                            {{Ind}}
-                            {{/thisMonth}}
-                            {{/each}}
-                        </td>
-                    </tr>
-                    {{/each}}
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div id='calendar' class="col-xs-12 col-lg-8"></div>
-    </div>
 </div>
+
+<script>
+    document.getElementsByClassName("tablink")[0].click();
+
+    function openClient(evt, clientName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("client");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].classList.remove("w3-light-grey");
+        }
+        document.getElementById(clientName).style.display = "block";
+        evt.currentTarget.classList.add("w3-light-grey");
+    }
+</script>

@@ -22,8 +22,8 @@
     <div class="w3-bar w3-white w3-card" id="myNavbar">
       <a href="/" class="w3-bar-item w3-button w3-wide">MyClient</a>
       <div class="w3-right w3-hide-small">
-        <a href="/event/add" class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
-        <a href="/client/view" class="w3-bar-item w3-button"><i class="fa fa-child"></i> CLIENTS</a>
+        <a onclick="document.getElementById('eventModal').style.display='block'"  class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
+        <a onclick="document.getElementById('clientModal').style.display='block'" class="w3-bar-item w3-button"><i class="fa fa-child"></i> CLIENTS</a>
         <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
         <a href="/user/logout" class="w3-bar-item w3-button">LOGOUT</a>
 
@@ -51,8 +51,8 @@
 </body>
 
 <script src="/js/index.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+{{!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> --}}
 <script src="/js/bundle.js"></script>
 
 </html>
