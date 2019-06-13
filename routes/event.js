@@ -8,7 +8,7 @@ router.get('/view', (req, res) => {
         _id: req.user._id
     }, function (err, data) {
         if (err) return res.send(err)
-        res.send(data);
+        res.send(data[0].events);
     });
 });
 
