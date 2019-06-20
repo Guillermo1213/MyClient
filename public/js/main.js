@@ -1,13 +1,13 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
+import 'jquery-timepicker/jquery.timepicker.js'
+import 'jquery-timepicker/jquery.timepicker.css'
 import '@fullcalendar/core/main.css'
 import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
-import '../css/index.css'
 import '../css/main.css'
-import axios from "axios"
-
+import axios from 'axios'
 var eventData;
 
 async function getEvents() {
@@ -37,20 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // editable: true,
         eventLimit: false,
         allDaySlot: false,
-        minTime: "06:00:00",
-        maxTime: "20:00:00",
-        header: {
-            center: 'month, agendaWeek, agendaDay',
-            right: 'prev, next'
-        },
-        customButtons: {
-            // addEventButton: {
-            //     text: 'Add Event',
-            //     // click: addEvent,
-            //     click: openModal,
-            // }
-        }
-
+        minTime: "08:00:00",
+        maxTime: "19:00:00"
     });
 
     calendar.render();
@@ -59,46 +47,26 @@ document.addEventListener('DOMContentLoaded', function () {
         return calendar.addEventSource(eventData)
     })
 
-    datePicker();
+    $('#datepicker').datepicker({
+        //set options here
+        onSelect: (dateText, inst) => {
+            $("input[name='date']").val(dateText)
+        }
+    });
+
+    $('#timepicker').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 15,
+        minTime: '8:00am',
+        maxTime: '6:00pm',
+        defaultTime: '8',
+        startTime: '8:00',
+        dynamic: true,
+        dropdown: true,
+        scrollbar: true,
+        zindex: 999
+    });
 })
-
-function datePicker(){$.datepicker.setDefaults({
-    showOn: "both",
-    buttonImageOnly: true,
-    buttonImage: "calendar.gif",
-    buttonText: "Calendar"
-});}
-// $("#format").on("change", function () {
-//     $("#datepicker").datepicker("option", "dateFormat", $(this).val());
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

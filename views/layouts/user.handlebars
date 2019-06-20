@@ -22,8 +22,8 @@
     <div class="w3-bar w3-white w3-card" id="myNavbar">
       <a href="/" class="w3-bar-item w3-button w3-wide">MyClient</a>
       <div class="w3-right w3-hide-small">
-        <a onclick="document.getElementById('eventModal').style.display='block'"  class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
-        <a onclick="document.getElementById('clientModal').style.display='block'" class="w3-bar-item w3-button"><i class="fa fa-child"></i> CLIENTS</a>
+        <a onclick="openEventModal();"  class="w3-bar-item w3-button"><i class="fa fa-th"></i> ADD EVENT</a>
+        <a onclick="openClientModal();" class="w3-bar-item w3-button"><i class="fa fa-child"></i> CLIENTS</a>
         <a href="/contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> SUPPORT</a>
         <a href="/user/logout" class="w3-bar-item w3-button">LOGOUT</a>
 
@@ -39,8 +39,8 @@
   <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
     style="display:none" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">&lt;&lt; </a>
-    <a href="/event/add" onclick="w3_close()" class="w3-bar-item w3-button">ADD EVENT</a>
-    <a href="/client/view" onclick="w3_close()" class="w3-bar-item w3-button">CLIENTS</a>
+    <a onclick="w3_close(); openEventModal();" class="w3-bar-item w3-button">ADD EVENT</a>
+    <a onclick="w3_close(); openClientModal(); modalController();" class="w3-bar-item w3-button">CLIENTS</a>
     <a href="/contact" onclick="w3_close()" class="w3-bar-item w3-button">SUPPORT</a>
     <a href="/user/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
   </nav>
@@ -51,8 +51,6 @@
 </body>
 
 <script src="/js/index.js"></script>
-{{!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script> --}}
 <script src="/js/bundle.js"></script>
 
 </html>
