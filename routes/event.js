@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 const moment = require('moment')
+const uuidv1 = require('uuid/v1')
 
 router.get('/view', (req, res) => {
     User.find({
@@ -17,16 +18,21 @@ router.post('/add', (req, res) => {
     const { client, code, time, duration, date } = req.body;
     const eventStart = date + " " + time;
     const start = formatStartTime(eventStart);
-    const end = formatEndTime(start,duration);
+    const end = formatEndTime(start, duration);
     const newEvent = {
         title: code + " for " + client,
         start: start,
-        end: end
+        end: end,
+        id: uuidv1()
     }
+
     console.log(newEvent)
-    res.redirect('back');
-    // User.findByIdAndUpdate(req.user._id, )
-    //add event
+
+    User.findByIdAndUpdate(
+        { _id: req.user._id },
+        { $push: { events: newEvent } }, 
+        () => res.redirect('back')
+    )
     //update hours
 })
 
