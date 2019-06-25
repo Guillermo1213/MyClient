@@ -55,3 +55,22 @@ function openClient(evt, clientName) {
   document.getElementById(clientName).style.display = 'block';
   evt.currentTarget.classList.add('w3-light-grey');
 }
+
+$(document).ready(function () {
+  checkSize();
+  $(window).resize(checkSize);
+});
+
+
+//Add more css margin for calendar-header @ mobile screen size
+function checkSize() {
+  if ($("#mainDisplay").css("display") == "table") {
+    $('#mainDisplay').removeClass('w3-row');
+    $('#clientTable').removeClass('w3-col');
+    $('#calendar').removeClass('w3-col');
+  } else if ($("#mainDisplay").css("display") !== "table") {
+    $('#mainDisplay').addClass('w3-row');
+    $('#clientTable').addClass('w3-col');
+    $('#calendar').addClass('w3-col');
+  }
+}

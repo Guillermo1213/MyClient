@@ -31,7 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
         schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
         defaultView: 'timeGridWeek',
         height: parent,
-        contentHeight: 600,
+        contentHeight: 500,
+        header: {
+            right: 'prev, next'
+        },
         // eventClick: editEvent,
         selectable: true,
         // editable: true,

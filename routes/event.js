@@ -16,24 +16,26 @@ router.get('/view', (req, res) => {
 
 router.post('/add', (req, res) => {
     const { client, code, time, duration, date } = req.body;
-    const eventStart = date + " " + time;
-    const start = formatStartTime(eventStart);
+    const userST = date + " " + time;
+    const start = formatStartTime(userST);
     const end = formatEndTime(start, duration);
+    const billingMonth = month(start);
+    var uuid = uuidv1();
+    var title = eventTitle(client, code);
     const newEvent = {
-        title: code + " for " + client,
+        title: title,
         start: start,
         end: end,
-        id: uuidv1()
+        id: uuid
     }
 
-    console.log(newEvent)
+    adjustHours(req.user._id, client, code, duration, billingMonth);
+    // User.findByIdAndUpdate(
+    //     { _id: req.user._id },
+    //     { $push: { events: newEvent } }, 
+    //     () => res.redirect('back')
+    // )
 
-    User.findByIdAndUpdate(
-        { _id: req.user._id },
-        { $push: { events: newEvent } }, 
-        () => res.redirect('back')
-    )
-    //update hours
 })
 
 function formatStartTime(userST) {
@@ -45,6 +47,36 @@ function formatStartTime(userST) {
 function formatEndTime(start, duration) {
     const end = moment(start).add(duration, 'hours').format();
     return end
+}
+
+function eventTitle(client, code) {
+    var title;
+    if (client == 'NA') {
+        title = 'Clinic Development';
+        return title
+    } else {
+        title = code + " for " + client;
+        return title
+    }
+}
+
+function month(start) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const d = moment(start).month()
+    var monthString = months[d]
+    return monthString
+}
+
+function adjustHours(id, client, code, duration, billingMonth) {
+
+    User.findOneAndUpdate({_id: id, "clients": {Name: client}
+    // , "Current_Month": {Month: billingMonth}
+}
+    // , {$inc: {[code]: -duration}}
+    ,
+    err => console.log(err),
+    res => console.log(res)
+    )
 }
 
 module.exports = router

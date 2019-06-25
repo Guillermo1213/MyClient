@@ -1,6 +1,6 @@
 #mainDisplay{
-    margin-top: 3%;
-    height: 100%;
+  margin-top: 3%;
+  height: 100%;
 }
 
 body, html {
@@ -20,46 +20,45 @@ body, html {
   padding: 16px;
 }
 
-
 .modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
   }
   
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
   
-  #close {
-    float: right;
-    color: #aaaaaa;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  #close:hover,
-  #close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+#close {
+  float: right;
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-  .input{
-    margin-bottom: 5%
-  }
+#close:hover,
+#close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.input{
+  margin-bottom: 5%
+}
 
 .ui-datepicker,
 .ui-datepicker-inline,
@@ -72,8 +71,16 @@ body, html {
 
 @media screen and (max-width: 990px) {
   #mainDisplay{
-    display: flex;
-    flex-direction: column-reverse; 
+    position: relative;
+    /*Below sets calendar properly below navbar and sidebar, but disables access to calendar left & right arrows */
+    z-index: -1; 
+    display: table;
+  }
+  #clientTable{
+    display: table-footer-group;
+  }
+  #calendar{
+    display: table-header-group;
   }
 }
 
@@ -87,8 +94,4 @@ body, html {
   th.fc-day-header > span{
     font-size: 60%;
   }
-}
-
-#calendar{
-  z-index: -1;
 }
