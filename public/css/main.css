@@ -71,9 +71,6 @@ body, html {
 
 @media screen and (max-width: 990px) {
   #mainDisplay{
-    position: relative;
-    /*Below sets calendar properly below navbar and sidebar, but disables access to calendar left & right arrows */
-    z-index: -1; 
     display: table;
   }
   #clientTable{
@@ -82,6 +79,9 @@ body, html {
   #calendar{
     display: table-header-group;
   }
+  .fc-view-container{
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 470px) {
@@ -89,7 +89,9 @@ body, html {
     display: none;
   }
   .fc-right{
-    margin: 0 auto;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
   }
   th.fc-day-header > span{
     font-size: 60%;

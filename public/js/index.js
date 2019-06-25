@@ -38,9 +38,9 @@ function closeClientModal() {
   clientModal.style.display = 'none';
 }
 
-(function tabs() {
+function tabs() {
   document.getElementsByClassName('tablink')[0].click();
-})();
+}
 
 function openClient(evt, clientName) {
   var i, x, tablinks;
@@ -56,13 +56,6 @@ function openClient(evt, clientName) {
   evt.currentTarget.classList.add('w3-light-grey');
 }
 
-$(document).ready(function () {
-  checkSize();
-  $(window).resize(checkSize);
-});
-
-
-//Add more css margin for calendar-header @ mobile screen size
 function checkSize() {
   if ($("#mainDisplay").css("display") == "table") {
     $('#mainDisplay').removeClass('w3-row');
@@ -74,3 +67,9 @@ function checkSize() {
     $('#calendar').addClass('w3-col');
   }
 }
+
+$(document).ready(function () {
+  checkSize();
+  tabs();
+  $(window).resize(checkSize);
+});
