@@ -26,6 +26,10 @@ function closeEventModal() {
   eventModal.style.display = 'none';
 }
 
+function closeEventEditModal() {
+  eventEditModal.style.display = 'none';
+}
+
 function openClientModal() {
   if (clientModal.style.display === 'block') {
     clientModal.style.display = 'none';

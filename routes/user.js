@@ -7,6 +7,7 @@ const passport = require('../passport')
 router.get('/', checkAuthentication, (req, res) => {
     res.redirect('/dashboard');
 })
+
 function checkAuthentication(req,res,next){
     if(req.isAuthenticated()){
         next();

@@ -41,6 +41,11 @@ body, html {
   border: 1px solid #888;
   width: 80%;
 }
+
+#datepicker1,
+#datepicker2{
+  margin-bottom: 3%
+}
   
 #close {
   float: right;
@@ -57,7 +62,7 @@ body, html {
 }
 
 .input{
-  margin-bottom: 5%
+  margin-bottom: 3%
 }
 
 .ui-datepicker,
@@ -68,7 +73,7 @@ body, html {
   margin-right: auto;
   margin-top: 30px;
 }
-
+/* Edit left/right buttons to drop under calendar for mobile view */
 @media screen and (max-width: 990px) {
   #mainDisplay{
     display: table;

@@ -12,26 +12,26 @@
                 {{#each clients}}
                 <tr>
                     <th scope="row">
-                        {{Name}}
+                        {{name}}
                     </th>
                     <td id="supColumn">
-                        {{#each Current_Month}}
-                        {{#thisMonth Month}}
-                        {{Sup}}
+                        {{#each currentMonth}}
+                        {{#thisMonth month}}
+                        {{sup}}
                         {{/thisMonth}}
                         {{/each}}
                     </td>
                     <td id="peColumn">
-                        {{#each Current_Month}}
-                        {{#thisMonth Month}}
-                        {{PE}}
+                        {{#each currentMonth}}
+                        {{#thisMonth month}}
+                        {{pe}}
                         {{/thisMonth}}
                         {{/each}}
                     </td>
                     <td id="indColumn">
-                        {{#each Current_Month}}
-                        {{#thisMonth Month}}
-                        {{Ind}}
+                        {{#each currentMonth}}
+                        {{#thisMonth month}}
+                        {{ind}}
                         {{/thisMonth}}
                         {{/each}}
                     </td>
@@ -50,13 +50,13 @@
             </div>
             <div class="w3-bar w3-border-bottom">
                 {{#each clients}}
-                <button class="tablink w3-bar-item w3-button" onclick="openClient(event, '{{Name}}')">
-                    {{Name}}
+                <button class="tablink w3-bar-item w3-button" onclick="openClient(event, '{{name}}')">
+                    {{name}}
                 </button>
                 {{/each}}
             </div>
             {{#each clients}}
-            <div id="{{Name}}" class="w3-container client">
+            <div id="{{name}}" class="w3-container client">
                 <h1 style="text-align: center">Monthly Authorized</h1>
                 <table class="w3-table w3-bordered">
                     <tr>
@@ -65,9 +65,9 @@
                         <th style="text-align: center" scope="col">Ind</th>
                     </tr>
                     <tr>
-                        <td style="text-align: center">{{Monthly_Auth.Sup}}</td>
-                        <td style="text-align: center">{{Monthly_Auth.PE}}</td>
-                        <td style="text-align: center">{{Monthly_Auth.Ind}}</td>
+                        <td style="text-align: center">{{monthlyAuth.sup}}</td>
+                        <td style="text-align: center">{{monthlyAuth.pe}}</td>
+                        <td style="text-align: center">{{monthlyAuth.ind}}</td>
                     </tr>
                 </table>
             </div>
@@ -94,22 +94,22 @@
                             <select name="client" id="clientSelection" class="w3-select">
                                 <option>NA</option>
                                 {{#each clients}}
-                                <option>{{Name}}</option>
+                                <option>{{name}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="w3-row input">
                             <label><b>Billing Code:</b></label>
                             <select name="code" id="codeSelection" class="w3-select">
-                                <option>Sup</option>
-                                <option>PE</option>
-                                <option>Ind</option>
-                                <option>Clinic Development</option>
+                                <option value="sup">Sup</option>
+                                <option value="pe">PE</option>
+                                <option value="ind">Ind</option>
+                                <option value="cd">Clinic Development</option>
                             </select>
                         </div>
                         <div class="w3-row input">
                             <label><b>Time:</b></label>
-                            <input name='time' type="text" id="timepicker" class="w3-input">
+                            <input name='time' type="text" id="timepicker1" class="w3-input">
                         </div>
                         <div class="w3-row input">
                             <label><b>Duration:</b></label>
@@ -141,12 +141,87 @@
                             </select>
                         </div>
                     </div>
-                    <div class="w3-col s12 l5" id="datepicker"></div>
+                    <div class="w3-col s12 l5" id="datepicker1"></div>
                     <input type="text" name="date" value="datepickerVal" style="display: none">
                 </div>
                 <div class="w3-row">
                     <button type="submit" value="Submit" formaction="/event/add" class="w3-button w3-block"><b>Submit
                             Event</b></button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div id="eventEditModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top" style="max-width: 80%; margin: auto">
+            <div class="w3-row">
+                <h1>
+                    <span style="margin: 1%" onclick="closeEventEditModal();" id="close">&times;</span>
+                </h1>
+            </div>
+            <form class="w3-container" method="POST">
+                <div class="w3-row">
+                    <div class="w3-col s12 l7">
+                        <div class="w3-row input">
+                            <label><b>Client:</b></label>
+                            <select name="client" id="clientSelection" class="w3-select">
+                                <option>NA</option>
+                                {{#each clients}}
+                                <option>{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="w3-row input">
+                            <label><b>Billing Code:</b></label>
+                            <select name="code" id="codeSelection" class="w3-select">
+                                <option value="sup">Sup</option>
+                                <option value="pe">PE</option>
+                                <option value="ind">Ind</option>
+                                <option value="cd">Clinic Development</option>
+                            </select>
+                        </div>
+                        <div class="w3-row input">
+                            <label><b>Time:</b></label>
+                            <input name='time' type="text" id="timepicker2" class="w3-input">
+                        </div>
+                        <div class="w3-row input">
+                            <label><b>Duration:</b></label>
+                            <select name="duration" id="durationSelection" class="w3-select">
+                                <option value=".25">15 Min</option>
+                                <option value=".50">30 Min</option>
+                                <option value=".75">45 Min</option>
+                                <option value="1">1Hr</option>
+                                <option value="1.25">1Hr 15 Min</option>
+                                <option value="1.50">1Hr 30 Min</option>
+                                <option value="1.75">1Hr 45 Min</option>
+                                <option value="2">2Hr</option>
+                                <option value="2.25">2Hr 15 Min</option>
+                                <option value="2.50">2Hr 30 Min</option>
+                                <option value="2.75">2Hr 45 Min</option>
+                                <option value="3">3Hr</option>
+                                <option value="3.25">3Hr 15 Min</option>
+                                <option value="3.50">3Hr 30 Min</option>
+                                <option value="3.75">3Hr 45 Min</option>
+                                <option value="4">4Hr</option>
+                                <option value="4.25">4Hr 15 Min</option>
+                                <option value="4.50">4Hr 30 Min</option>
+                                <option value="4.75">4Hr 45 Min</option>
+                                <option value="5">5Hr</option>
+                                <option value="5.25">5Hr15 Min</option>
+                                <option value="5.50">5Hr30 Min</option>
+                                <option value="5.75">5Hr45 Min</option>
+                                <option value="6">6Hr</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w3-col s12 l5" id="datepicker2"></div>
+                    <input type="text" name="date" value="datepickerVal" style="display: none">
+                </div>
+                <div class="w3-row">
+                    <button type="submit" value="Submit" formaction="/event/edit" class="w3-button w3-col s6"><b>Edit
+                            Event</b></button>
+                    <button type="submit" value="Submit" formaction="/event/delete"
+                        class="w3-button w3-col s6"><b>Delete Event</b></button>
                 </div>
             </form>
         </div>

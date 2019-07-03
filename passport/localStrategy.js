@@ -20,12 +20,4 @@ const strategy = new LocalStrategy(
 	}
 )
 
-// app.post('/',
-// 	passport.authenticate('local', { failureRedirect: '/error' }),
-
-// 	function (req, res) {
-// 		res.redirect('/success?username=' + req.user.username);
-// 	}
-// );
-
 module.exports = strategy

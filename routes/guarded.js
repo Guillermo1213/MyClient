@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
-const passport = require('../passport')
+const check = require('../passport/checkAuth')
 
-router.get('/', checkAuthentication, (req, res) => {
+router.get('/', check.authorized, (req, res) => {
     User.find({
         _id: req.user._id
     }, function (err, data) {
@@ -11,13 +11,5 @@ router.get('/', checkAuthentication, (req, res) => {
         res.render('dashboard', { title: 'dashboard', clients: data[0].clients, layout: 'user' });
     });
 });
-
-function checkAuthentication(req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect("/user");
-    }
-}
 
 module.exports = router

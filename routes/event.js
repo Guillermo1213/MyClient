@@ -1,42 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
-const passport = require('../passport')
 const moment = require('moment')
 const uuidv1 = require('uuid/v1')
-
-router.get('/view', (req, res) => {
-    User.find({
-        _id: req.user._id
-    }, function (err, data) {
-        if (err) return res.send(err)
-        res.send(data[0].events);
-    });
-});
-
-router.post('/add', (req, res) => {
-    const { client, code, time, duration, date } = req.body;
-    const userST = date + " " + time;
-    const start = formatStartTime(userST);
-    const end = formatEndTime(start, duration);
-    const billingMonth = month(start);
-    var uuid = uuidv1();
-    var title = eventTitle(client, code);
-    const newEvent = {
-        title: title,
-        start: start,
-        end: end,
-        id: uuid
-    }
-
-    adjustHours(req.user._id, client, code, duration, billingMonth);
-    // User.findByIdAndUpdate(
-    //     { _id: req.user._id },
-    //     { $push: { events: newEvent } }, 
-    //     () => res.redirect('back')
-    // )
-
-})
+const check = require('../passport/checkAuth')
 
 function formatStartTime(userST) {
     const ST = userST;
@@ -67,16 +34,62 @@ function month(start) {
     return monthString
 }
 
-function adjustHours(id, client, code, duration, billingMonth) {
+router.get('/view', check.authorized, (req, res) => {
+    User.find({
+        _id: req.user._id
+    }, function (err, data) {
+        if (err) return res.send(err)
+        res.send(data[0].events);
+    });
+});
 
-    User.findOneAndUpdate({_id: id, "clients": {Name: client}
-    // , "Current_Month": {Month: billingMonth}
-}
-    // , {$inc: {[code]: -duration}}
-    ,
-    err => console.log(err),
-    res => console.log(res)
+router.post('/add', check.authorized, (req, res, next) => {
+    const { client, code, time, duration, date } = req.body;
+    const userST = date + " " + time;
+    const start = formatStartTime(userST);
+    const billingMonth = month(start);
+    const query = 'clients.$[client].currentMonth.$[month].' + code
+
+    User.findByIdAndUpdate(
+        {_id: req.user._id},
+        {$inc: {[query]: -duration }},
+        {returnNewDocument: true,
+        arrayFilters: [{'client.name': client}, {'month.month': billingMonth}]
+        },
+        function (err, data) {
+            if (err) console.log(err);
+            if (data) console.log(data)
+        }
     )
-}
+
+    next();
+})
+
+router.post('/add', check.authorized, (req, res) => {
+    const { client, code, time, duration, date } = req.body;
+    const userST = date + " " + time;
+    const start = formatStartTime(userST);
+    const end = formatEndTime(start, duration);
+    var uuid = uuidv1();
+    var title = eventTitle(client, code);
+    const newEvent = {
+        title: title,
+        start: start,
+        end: end,
+        id: uuid
+    }
+
+    User.findByIdAndUpdate(
+        { _id: req.user._id },
+        { $push: { events: newEvent} }, 
+        (err, data) => {
+            if (err) console.log(err)
+            if (data) res.redirect('back')
+        }
+    )
+
+})
+
+
 
 module.exports = router

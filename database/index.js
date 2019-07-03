@@ -2,11 +2,11 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-//your local database url
-//27017 is the default mongoDB port
 const uri = 'mongodb://localhost:27017/MyClient'
 
 mongoose.set('useFindAndModify', false);
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useCreateIndex', true);
 
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
@@ -14,7 +14,7 @@ if (process.env.MONGODB_URI) {
 
     mongoose.connect(uri).then(
         () => {
-            /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
+            /** ready to use. */
             console.log('Connected to Mongo');
 
         },
