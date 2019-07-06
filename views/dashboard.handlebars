@@ -163,24 +163,6 @@
                 <div class="w3-row">
                     <div class="w3-col s12 l7">
                         <div class="w3-row input">
-                            <label><b>Client:</b></label>
-                            <select name="client" id="clientSelection" class="w3-select">
-                                <option>NA</option>
-                                {{#each clients}}
-                                <option>{{name}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <div class="w3-row input">
-                            <label><b>Billing Code:</b></label>
-                            <select name="code" id="codeSelection" class="w3-select">
-                                <option value="sup">Sup</option>
-                                <option value="pe">PE</option>
-                                <option value="ind">Ind</option>
-                                <option value="cd">Clinic Development</option>
-                            </select>
-                        </div>
-                        <div class="w3-row input">
                             <label><b>Time:</b></label>
                             <input name='time' type="text" id="timepicker2" class="w3-input">
                         </div>
@@ -217,6 +199,11 @@
                     <div class="w3-col s12 l5" id="datepicker2"></div>
                     <input type="text" name="date" value="datepickerVal" style="display: none">
                 </div>
+                <div class="hidden-input id"><input class="hidden-input id" id="event_id_input" name="event_id" type="text" value="id"></div>
+                <div class="hidden-input duration"><input class="hidden-input duration" id="event_duration_input" name="event_duration" type="text" value="duration"></div>
+                <div class="hidden-input client_name"><input class="hidden-input client_name" id="event_client_name_input" name="event_client_name" type="text" value="client_name"></div>
+                <div class="hidden-input code"><input class="hidden-input code" id="event_code_input" name="event_code" type="text" value="code"></div>
+                <div class="hidden-input billing_month"><input class="hidden-input billing_month" id="event_billing_month_input" name="event_billing_month" type="text" value="billing_month"></div>
                 <div class="w3-row">
                     <button type="submit" value="Submit" formaction="/event/edit" class="w3-button w3-col s6"><b>Edit
                             Event</b></button>

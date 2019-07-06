@@ -65,6 +65,10 @@ body, html {
   margin-bottom: 3%
 }
 
+.hidden-input{
+  display: none;
+}
+
 .ui-datepicker,
 .ui-datepicker-inline,
 .ui-widget,

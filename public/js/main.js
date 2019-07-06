@@ -25,10 +25,14 @@ async function getEvents() {
 function editEvent(event) {
     if (eventEditModal.style.display === 'block') {
         eventEditModal.style.display = 'none';
-      } else {
+    } else {
         eventEditModal.style.display = 'block';
-      }
-    console.log(event.event.id)
+        $('#event_id_input').attr('value', event.event.id)
+        $('#event_duration_input').attr('value', event.event.extendedProps.duration)
+        $('#event_client_name_input').attr('value', event.event.extendedProps.client)
+        $('#event_code_input').attr('value', event.event.extendedProps.code)
+        $('#event_billing_month_input').attr('value', event.event.extendedProps.billing_month)
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         allDaySlot: false,
         minTime: "08:00:00",
         maxTime: "19:00:00",
-        eventRender: function(info){
+        eventRender: function (info) {
             var id = info.event.id
             $(info.el).attr('id', id)
         }
