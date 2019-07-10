@@ -65,7 +65,11 @@ body, html {
   margin-bottom: 3%
 }
 
-.hidden-input{
+input.update2{
+  width: 100%
+}
+
+.hidden{
   display: none;
 }
 

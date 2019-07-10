@@ -8,13 +8,13 @@ import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
 import '../css/main.css'
 import axios from 'axios'
-var eventData;
+// var eventData;
 
 async function getEvents() {
     try {
         const res = await axios
             .get('/event/view');
-        eventData = (res.data);
+        var eventData = (res.data);
         return eventData;
     }
     catch (err) {
@@ -34,6 +34,37 @@ function editEvent(event) {
         $('#event_billing_month_input').attr('value', event.event.extendedProps.billing_month)
     }
 }
+
+async function editClientRequest() {
+    try {
+        const res = await axios
+            .get('/client/edit');
+        var data = (res.data);
+        return data;
+    }
+    catch (err) {
+        return console.log(err);
+    }
+}
+
+function editClient() {
+    openEditClientModal()
+    var supValue = $('#supValue').val()
+    var peValue = $('#peValue').val()
+    var indValue = $('#indValue').val()
+    var client = $('.selected').data('name')
+    var newHours= {
+        sup: supValue,
+        pe: peValue,
+        ind: indValue,
+        client: client
+    }
+
+    editClientRequest().then(data => console.log(data));
+
+}
+
+$('#updateDiv').on('click','#editClient', editClient)
 
 document.addEventListener('DOMContentLoaded', function () {
 

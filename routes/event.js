@@ -152,7 +152,6 @@ router.post('/edit', check.authorized, (req, res) => {
 
     User.findByIdAndUpdate(
         { _id: req.user._id },
-         // not updating current fields, but updating object as a whole, erasing client & billingCode
         { 'events.$[event]': editedEvent },
         { returnNewDocument: true, arrayFilters: [{ 'event.id': event_id }] },
         (err, success) => {

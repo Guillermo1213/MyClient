@@ -50,7 +50,7 @@
             </div>
             <div class="w3-bar w3-border-bottom">
                 {{#each clients}}
-                <button class="tablink w3-bar-item w3-button" onclick="openClient(event, '{{name}}')">
+                <button class="tablink w3-bar-item w3-button" data-name="{{name}}" onclick="openClient(event, '{{name}}')">
                     {{name}}
                 </button>
                 {{/each}}
@@ -64,17 +64,24 @@
                         <th style="text-align: center" scope="col">PE</th>
                         <th style="text-align: center" scope="col">Ind</th>
                     </tr>
-                    <tr>
-                        <td style="text-align: center">{{monthlyAuth.sup}}</td>
-                        <td style="text-align: center">{{monthlyAuth.pe}}</td>
-                        <td style="text-align: center">{{monthlyAuth.ind}}</td>
+                    <tr class="showing update1" id="updateTr" data-value="null">
+                        <td class="showing update1" style="text-align: center">{{monthlyAuth.sup}}</td>
+                        <td class="showing update1" style="text-align: center">{{monthlyAuth.pe}}</td>
+                        <td class="showing update1" style="text-align: center">{{monthlyAuth.ind}}</td>
+                    </tr>
+                    <tr class="hidden update2">
+                        <form id='editClientForm' method="POST">
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="supValue" value="{{monthlyAuth.sup}}"></td>
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="peValue" value="{{monthlyAuth.pe}}"></td>
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="indValue" value="{{monthlyAuth.ind}}"></td>
+                        </form>
                     </tr>
                 </table>
             </div>
             {{/each}}
-            <div class="w3-container w3-padding">
-                <button class="w3-button w3-right w3-white w3-border" onclick="event.preventDefault();">
-                    Edit
+            <div id="updateDiv" class="w3-container w3-padding">
+                <button id="openClient" onclick="openEditClientModal()" class="w3-button w3-right w3-white w3-border">
+                    <b>Edit</b>
                 </button>
             </div>
         </div>
@@ -199,11 +206,16 @@
                     <div class="w3-col s12 l5" id="datepicker2"></div>
                     <input type="text" name="date" value="datepickerVal" style="display: none">
                 </div>
-                <div class="hidden-input id"><input class="hidden-input id" id="event_id_input" name="event_id" type="text" value="id"></div>
-                <div class="hidden-input duration"><input class="hidden-input duration" id="event_duration_input" name="event_duration" type="text" value="duration"></div>
-                <div class="hidden-input client_name"><input class="hidden-input client_name" id="event_client_name_input" name="event_client_name" type="text" value="client_name"></div>
-                <div class="hidden-input code"><input class="hidden-input code" id="event_code_input" name="event_code" type="text" value="code"></div>
-                <div class="hidden-input billing_month"><input class="hidden-input billing_month" id="event_billing_month_input" name="event_billing_month" type="text" value="billing_month"></div>
+                <div class="hidden id"><input class="hidden id" id="event_id_input" name="event_id" type="text"
+                        value="id"></div>
+                <div class="hidden duration"><input class="hidden duration" id="event_duration_input"
+                        name="event_duration" type="text" value="duration"></div>
+                <div class="hidden client_name"><input class="hidden client_name" id="event_client_name_input"
+                        name="event_client_name" type="text" value="client_name"></div>
+                <div class="hidden code"><input class="hidden code" id="event_code_input" name="event_code" type="text"
+                        value="code"></div>
+                <div class="hidden billing_month"><input class="hidden billing_month" id="event_billing_month_input"
+                        name="event_billing_month" type="text" value="billing_month"></div>
                 <div class="w3-row">
                     <button type="submit" value="Submit" formaction="/event/edit" class="w3-button w3-col s6"><b>Edit
                             Event</b></button>
