@@ -8,7 +8,6 @@ import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
 import '../css/main.css'
 import axios from 'axios'
-// var eventData;
 
 async function getEvents() {
     try {
@@ -35,36 +34,32 @@ function editEvent(event) {
     }
 }
 
-async function editClientRequest() {
-    try {
-        const res = await axios
-            .get('/client/edit');
-        var data = (res.data);
-        return data;
-    }
-    catch (err) {
-        return console.log(err);
-    }
-}
-
 function editClient() {
+
     openEditClientModal()
+    var ogSup = $('#supTd').data('original')
+    var ogPe = $('#peTd').data('original')
+    var ogInd = $('#indTd').data('original')
     var supValue = $('#supValue').val()
     var peValue = $('#peValue').val()
     var indValue = $('#indValue').val()
     var client = $('.selected').data('name')
-    var newHours= {
+    var hours = {
         sup: supValue,
         pe: peValue,
         ind: indValue,
-        client: client
+        client: client,
+        ogSup: ogSup,
+        ogPe: ogPe,
+        ogInd: ogInd,
     }
 
-    editClientRequest().then(data => console.log(data));
+    axios.post('/client/edit', hours)
+        .then(location.reload())
 
 }
 
-$('#updateDiv').on('click','#editClient', editClient)
+$('#updateDiv').on('click', '#editClient', editClient)
 
 document.addEventListener('DOMContentLoaded', function () {
 

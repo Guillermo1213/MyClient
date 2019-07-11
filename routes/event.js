@@ -119,7 +119,6 @@ router.post('/edit', check.authorized, (req, res, next) => {
 
     User.findByIdAndUpdate(
         {_id: req.user._id},
-        //not updating properly
         {$inc: {[query]: data}},
         {returnNewDocument: true,
         arrayFilters: [{'client.name': event_client_name}, {'month.month': billing_month}]
