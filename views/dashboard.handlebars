@@ -45,7 +45,7 @@
         <div class="w3-modal-content w3-animate-top">
             <div class="w3-row">
                 <h1>
-                    <span style="margin: 1%" onclick="closeClientModal(); openEditClientModal()" id="close">&times;</span>
+                    <span style="margin: 1%" onclick="closeClientModal()" id="close">&times;</span>
                 </h1>
             </div>
             <div class="w3-bar w3-border-bottom">
@@ -65,15 +65,15 @@
                         <th style="text-align: center" scope="col">Ind</th>
                     </tr>
                     <tr class="showing update1" id="updateTr" data-value="null">
-                        <td id="supTd" class="showing update1" data-original="{{monthlyAuth.sup}}" style="text-align: center">{{monthlyAuth.sup}}</td>
-                        <td id="peTd" class="showing update1" data-original="{{monthlyAuth.pe}}" style="text-align: center">{{monthlyAuth.pe}}</td>
-                        <td id="indTd" class="showing update1" data-original="{{monthlyAuth.ind}}" style="text-align: center">{{monthlyAuth.ind}}</td>
+                        <td id="{{name}}supTd" class="showing update1" data-original="{{monthlyAuth.sup}}" style="text-align: center">{{monthlyAuth.sup}}</td>
+                        <td id="{{name}}peTd" class="showing update1" data-original="{{monthlyAuth.pe}}" style="text-align: center">{{monthlyAuth.pe}}</td>
+                        <td id="{{name}}indTd" class="showing update1" data-original="{{monthlyAuth.ind}}" style="text-align: center">{{monthlyAuth.ind}}</td>
                     </tr>
                     <tr class="hidden update2">
                         <form id='editClientForm' method="POST">
-                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="supValue" value="{{monthlyAuth.sup}}"></td>
-                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="peValue" value="{{monthlyAuth.pe}}"></td>
-                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="indValue" value="{{monthlyAuth.ind}}"></td>
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="{{name}}supValue" value="{{monthlyAuth.sup}}"></td>
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="{{name}}peValue" value="{{monthlyAuth.pe}}"></td>
+                            <td class="hidden update2"><input type="number" style="text-align: center" class="hidden update2" id="{{name}}indValue" value="{{monthlyAuth.ind}}"></td>
                         </form>
                     </tr>
                 </table>

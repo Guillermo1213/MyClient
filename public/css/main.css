@@ -11,6 +11,7 @@ body, html {
 .bgimg-1 {
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   background-image: url("https://images.pexels.com/photos/760720/pexels-photo-760720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
   filter: grayscale(10%);
   min-height: 100%;
@@ -108,5 +109,21 @@ input.update2{
   }
   th.fc-day-header > span{
     font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  div#header{
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: #888; */
+  }
+  div#header>*{
+    /* background: rgba(154, 240, 255, 0.742); */
+    width: 30%;
   }
 }

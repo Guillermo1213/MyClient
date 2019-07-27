@@ -70,9 +70,9 @@ router.post('/add', check.authorized, (req, res, next) => {
             returnNewDocument: true,
             arrayFilters: [{ 'client.name': client }, { 'month.month': billing_month }]
         },
-        function (err, res) {
+        function (err, success) {
             if (err) res.sendStatus(500);
-            if (res) console.log('Hours updated');
+            if (success) console.log('Hours updated');
         }
     )
 

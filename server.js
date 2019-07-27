@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const session = require('express-session')
 const path = require('path')
@@ -16,7 +17,7 @@ var hbs = require('handlebars')
 
 app.use(
 	session({
-		secret: 'fraggle-rock',
+		secret: process.env.APP_SECRET,
 		store: new MongoStore({ mongooseConnection: dbConnection }),
 		resave: false,
 		saveUninitialized: false
