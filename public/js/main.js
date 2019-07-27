@@ -165,6 +165,7 @@ $(document).ready(function () {
     // calendar.render();
 
     getEvents().then(eventData => {
+        console.log(eventData)
         return calendar.addEventSource(eventData)
     })
 
