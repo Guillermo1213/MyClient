@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    calendar.render();
+    // calendar.render();
 
     getEvents().then(eventData => {
         return calendar.addEventSource(eventData)
@@ -133,4 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollbar: true,
         zindex: 999
     });
+
+    calendar.render();
 })
