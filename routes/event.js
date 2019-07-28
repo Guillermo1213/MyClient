@@ -7,12 +7,12 @@ const check = require('../passport/checkAuth')
 
 function formatStartTime(userST) {
     const ST = userST;
-    const startTime = moment(ST, 'MM/DD/YYYY hh:mm a').format();
+    const startTime = moment(ST, 'MM/DD/YYYY hh:mm a').local().format();
     return startTime
 }
 
 function formatEndTime(start, duration) {
-    const end = moment(start).add(duration, 'hours').format();
+    const end = moment(start).add(duration, 'hours').local().format();
     return end
 }
 

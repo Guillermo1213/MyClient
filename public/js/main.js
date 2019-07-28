@@ -166,7 +166,8 @@ $(document).ready(function () {
 
     getEvents().then(eventData => {
         console.log(eventData)
-        return calendar.addEventSource(eventData)
+        calendar.addEventSource(eventData)
+        calendar.refetchEvents()
     })
 
     $('#datepicker1').datepicker({
