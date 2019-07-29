@@ -156,6 +156,7 @@ $(document).ready(function () {
         allDaySlot: false,
         minTime: "08:00:00",
         maxTime: "19:00:00",
+        timeZone: 'America/Los_Angeles',
         eventRender: function (info) {
             var id = info.event.id
             $(info.el).attr('id', id)
