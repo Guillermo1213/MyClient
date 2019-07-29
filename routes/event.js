@@ -7,13 +7,13 @@ const check = require('../passport/checkAuth')
 
 function formatStartTime(userST) {
     const ST = userST;
-    const startTime = moment(ST, 'MM/DD/YYYY hh:mm a').format();
-    return moment.parseZone(startTime).local().format();
+    const startTime = moment(ST, 'MM/DD/YYYY hh:mm a').utcOffset("-07:00").format();
+    return startTime
 }
 
 function formatEndTime(start, duration) {
-    const end = moment(start).add(duration, 'hours').format();
-    return moment.parseZone(end).local().format();
+    const end = moment(start).add(duration, 'hours').utcOffset("-07:00").format();
+    return end
 }
 
 function eventTitle(client, code) {
