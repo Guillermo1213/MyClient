@@ -1,2 +1,2 @@
 # MyClient
-Calendar app seeking to bridge the gap between scheduling an appointment and keeping track of monthly authorized hours.
+A client scheduling app seeking to bridge the gap between generating appointments and keeping track of the monthly hours used for billing.
