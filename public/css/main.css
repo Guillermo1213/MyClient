@@ -12,8 +12,10 @@ body, html {
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  background-image: url("https://images.pexels.com/photos/760720/pexels-photo-760720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
-  filter: grayscale(10%);
+  filter: drop-shadow(#bae1ff);
+  background-image: url("../images/calendar.png"); 
+  /* background-image: url("https://images.pexels.com/photos/760720/pexels-photo-760720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"); */
+  /* filter: grayscale(10%); */
   min-height: 100%;
 }
 
