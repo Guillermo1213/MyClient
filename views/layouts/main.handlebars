@@ -5,23 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gentium+Basic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+
   <title>MyClient - Monthly Hour Calendar &amp; Tracker</title>
 </head>
 
 <body>
   <div class="w3-top">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <div class="w3-bar w3-card" id="myNavbar">
       <a href="/" class="w3-bar-item w3-button w3-wide">MyClient</a>
       <div class="w3-right w3-hide-small">
-        <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-        <a href="/user" class="w3-bar-item w3-button"><i class="fa fa-th"></i> LOGIN</a>
-        <a href="#demo" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> DEMO</a>
-        <a href="/#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+        {{!-- <a href="#about" class="w3-bar-item w3-button">ABOUT</a> --}}
+        <a href="/user" class="navItem w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
+        <a href="/user/signup" class="navItem w3-bar-item w3-button"><i class="fa fa-user-plus"></i> SIGN UP</a>
+        {{!-- <a href="#demo" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> DEMO</a> --}}
+        {{!-- <a href="/#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a> --}}
       </div>
 
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
@@ -37,7 +40,7 @@
     <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
     <a href="/user" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
     <a href="#demo" onclick="w3_close()" class="w3-bar-item w3-button">DEMO</a>
-    <a href="/#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    {{!-- <a href="/#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a> --}}
   </nav>
 
   {{{ body }}}
@@ -46,8 +49,7 @@
 </body>
 
 <script src="/js/index.js"></script>
- <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+
 </html>
