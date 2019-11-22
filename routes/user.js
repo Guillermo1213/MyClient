@@ -41,7 +41,7 @@ router.post('/signup', (req, res) => {
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
-                res.redirect('/user')
+                res.redirect('/')
             })
         }
     })
@@ -57,7 +57,7 @@ router.post('/',
 
 router.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('/user')
+    res.redirect('/')
 })
 
 module.exports = router
