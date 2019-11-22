@@ -9,6 +9,24 @@ import '@fullcalendar/timegrid/main.css'
 import '../css/main.css'
 import axios from 'axios'
 import 'w3-css/w3.css'
+import '../css/animate.css'
+import '../css/app-landing.css'
+import '../css/bootstrap.css'
+import '../css/calendar.css'
+import '../css/colors.css'
+import '../css/custom.css'
+import '../css/dark.css'
+// import '../css/font-icons.css'
+import '../css/fonts.css'
+import '../css/intro-fonts.css'
+import '../css/magnific-popup.css'
+import '../css/responsive.css'
+import '../css/style2.css'
+import '../css/swiper.css'
+
+
+
+
 
 async function getEvents() {
     try {

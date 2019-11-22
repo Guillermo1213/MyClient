@@ -1,52 +1,354 @@
-<header class="bgimg-1 w3-display-container" id="home">
-  <div id="header" class="w3-display-right" style="padding:48px">
-    <span class="w3-hide-small">Keep track of the hours that matter</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Keep track of the hours that matter</span><br>
-    <span class="w3-large">Stop wasting time flipping through a planner.</span>
-    <p class="w3-hide-small"><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Increase your productivity by getting started today!</a></p>
-  </div> 
-</header>
 
-<div class="w3-container" style="padding:80px 16px" id="about">
-    <h3 class="w3-center">Key features of MyClient</h3>
-    {{!-- <p class="w3-center w3-large">Key features of MyClient</p> --}}
-    <div class="w3-row-padding w3-center" style="margin-top:64px">
-        <div class="w3-third">
-            <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-            <p class="w3-large">Responsive</p>
-            <p>Your schedule shouldn't be bound by a metal spiral, let alone a computer screen. Make your schedule wherever, and whenever you feel like. Our team is constantly making updates to our UI making sure we always deliver a user friendly version of our app, whether that's in the comfort of your tablet or mobility of your phone.</p>
-        </div>
-        <div class="w3-third">
-            <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-            <p class="w3-large">Passion</p>
-            <p>This application was created out of necessity, and through the help of a community of beta users, has evolved to be what you see today. We know, like any occupation your time is valuable. Here at MyClient, we want to ease your day to day, so there isn't a moment we aren't searching for new features (.. or old bugs)</p>
-        </div>
-        <div class="w3-third">
-            <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-            <p class="w3-large">Support</p>
-            <p>We love to hear from our users! Knowing it's not always for a pat in the back, we hope to get your feedback on anything and everything. In your apps navigation bar, you'll always have quick access to our development team, ready to help you with questions, comments and concerns.  </p>
-        </div>
-    </div>
-</div>
+<body class="stretched">
 
-<div class="w3-container w3-light-grey" style="padding:80px 16px" id="contact">
-    <h3 class="w3-center">CONTACT</h3>
-    <p class="w3-center w3-large">Lets chat! Send us a message:</p>
-    <div style="margin-top:48px">
-        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Los Angeles, US</p>
-        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: (661)480-3724</p>
-        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: guillermo.jr23@outlook.com</p>
-        <br>
-        <form action="/action_page.php" target="_blank">
-            <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-            <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-            <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-            <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-            <p>
-                <button class="w3-button w3-black" type="submit">
-                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                </button>
-            </p>
-        </form>
-    </div>
-</div>
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="split-menu transparent-header dark" data-sticky-class="not-dark"
+			data-responsive-class="not-dark">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo" style="margin-left: -15px;">
+						<a href=" index.html" class="standard-logo" data-dark-logo="./images/logo-dark.png"><img
+								src="./images/logo.png" style="max-height: 30px; width: 130px; margin: 35px;"
+								alt="MyClient Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="./images/logo-dark@2x.png"><img
+								src="./images/logo@2x.png" style="max-height: 30px; width: 130px; margin: 35px;"
+								alt="MyClient Logo"></a>
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" class="with-arrows clearfix not-dark">
+
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
+							<li><a href="#" data-href="#wrapper">
+									<div>Home</div>
+								</a></li>
+							<li><a href="#" data-href="#section-nextgen">
+									<div>About</div>
+								</a>
+								<ul>
+									<li><a href="#" data-href="#section-nextgen">
+											<div>Usage</div>
+										</a></li>
+									<li><a href="#" data-href="#section-stunning-graphics">
+											<div>Responsive</div>
+										</a></li>
+									<li><a href="#" data-href="#section-secured-solutions">
+											<div>Secured</div>
+										</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="160">
+							<li><a href="#" data-href="#section-gallery">
+									<div>Gallery</div>
+								</a></li>
+							<li class="menu-item-emphasis"><a href="#modal-login" data-lightbox="inline">
+									<div>Login</div>
+								</a></li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<section id="slider" class="slider-element full-screen slider-parallax">
+			<div class="slider-parallax-inner"
+				style="background: url('./images/hero/hero.png') center center no-repeat; background-size: cover;">
+				<div class="vertical-middle" style="z-index: 2;">
+					<div class="container clearfix">
+						<div class="row clearfix">
+							<div class="col-lg-6 col-md-8">
+								<div class="emphasis-title">
+									<h1 style="color: rgb(35,43,93);" class="font-body">Keep track of<br>what matters
+									</h1>
+								</div>
+								<a href="#" data-scrollto="#section-stunning-graphics" data-easing="easeInOutExpo"
+									data-speed="1250" data-offset="160"
+									class="button button-large button-white button-light capitalize"
+									style="border-radius: 23px; color: rgb(35,43,93);">Get started</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="video-wrap" style="position: absolute; height: 100%; z-index: 1;">
+					<div class="video-overlay" style="background: rgba(0,0,0,0.1);"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap" style="padding-bottom: 0px; margin-bottom: -70px; padding-top: 0px;">
+
+				<!-- Modal -->
+				<div class="modal1 mfp-hide" id="modal-login">
+					<div class="block divcenter" style="background-color: #FFF; max-width: 400px;">
+						<div style="padding: 50px;">
+							<h3 class="font-body">Login to your Account</h3>
+							<form action="/user/" method="POST" class="nobottommargin">
+								<div class="col_full">
+									<label class="font-body capitalize"
+										for="username">Username:</label>
+									<input type="text" id="login-form-modal-username" name="username"
+									 	placeholder="Username" class="form-control" />
+								</div>
+
+								<div class="col_full">
+									<label class="font-body capitalize"
+										for="password">Password:</label>
+									<input type="password" id="login-form-modal-password"
+										name="password" placeholder="Password" class="form-control" />
+								</div>
+
+								<div class="col_full nobottommargin">
+									<button class="button button-rounded nomargin" id="login-form-modal-submit"
+										name="signin" value="Log In">Login</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="container clearfix">
+
+					<div id="section-stunning-graphics" class="page-section topmargin bottommargin-lg">
+						<div class="row clearfix">
+							<div class="col-lg-7 center">
+								<img src="./images/section/responsive.png" alt="Responsive Graphics"
+									data-animate="fadeInRight" style="margin-top: 80px;">
+							</div>
+
+							<div class="col-lg-5">
+								<div class="topmargin-lg d-none d-lg-block"></div>
+								<img src="./images/section/section-2-icon.png" alt="" style="display: block;"
+									class="bottommargin-sm">
+								<div class="emphasis-title bottommargin-sm">
+									<span class="before-heading">Retina Ready</span>
+									<h2 style="font-size: 42px;" class="font-body ls1 t400">Responsive Interface</h2>
+								</div>
+								<p style="color: #777;" class="lead">Your schedule shouldn't be bound by a metal spiral,
+									let alone a computer screen. Make your schedule wherever, and whenever you feel
+									like. Our team is constantly making updates to our UI making sure we always deliver
+									a user friendly version of our app, whether that's in the comfort of your tablet or
+									mobility of your phone.</p>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="line"></div>
+
+					<div id="section-nextgen" class="page-section bottommargin-lg">
+						<div class="row clearfix">
+
+							<div class="col-lg-5">
+								<div class="topmargin-lg d-none d-lg-block"></div>
+								<img src="./images/section/section-1-icon.png" alt="" style="display: block;"
+									class="bottommargin-sm">
+								<div class="emphasis-title bottommargin-sm">
+									<span class="before-heading">Stay Connected</span>
+									<h2 style="font-size: 42px;" class="font-body ls1 t400">With 24/7 Support</h2>
+								</div>
+								<p style="color: #777;" class="lead">We love to hear from our users! Knowing it's not
+									always for a pat in the back, we hope to get your feedback on anything and
+									everything. In your apps navigation bar, you'll always have quick access to our
+									development team, ready to help you with questions, comments and concerns.</p>
+							</div>
+
+							<div class="col-lg-7 center">
+								<img src="./images/section/support.png" alt="24/7 Support"
+									data-animate="fadeInLeft" style="margin-top: 100px;">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="line"></div>
+
+					<div id="section-secured-solutions" class="page-section section nopadding topmargin-sm"
+						style="background: url('./images/section/iphone-bg.png') no-repeat left bottom; background-size: 100% auto;"
+						data-height-xl="700" data-height-lg="700" data-height-md="450" data-height-sm="450"
+						data-height-xs="450">
+						<div class="container clearfix">
+							<div class="row clearfix">
+								<div class="col-lg-5 offset-lg-7">
+									<div class="topmargin-lg d-none d-lg-block"></div>
+									<div class="topmargin-lg d-none d-lg-block"></div>
+									<img src="./images/section/section-3-icon.png" alt="" style="display: block;"
+										class="bottommargin-sm">
+									<div class="emphasis-title bottommargin-sm">
+										<span class="before-heading">Privacy for all</span>
+										<h2 style="font-size: 42px;" class="font-body ls1 t400">HIPPA Compliant</h2>
+									</div>
+									<p style="color: #777; margin-top: -20px;" class="lead">Aside from using a SHA-256
+										hash to crypt your passwords, we keep your
+										clients' appointments HIPPA compliant by only displaying initals.</p>
+								</div>
+							</div>
+						</div>
+						<div class="video-wrap" style="position: absolute; height: 100%; z-index: 1;">
+							<div class="video-overlay d-none d-lg-block"
+								style="background: url('./images/section/iphone.png') no-repeat left top; background-size: auto 100%;"
+								data-animate="fadeInLeft"></div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+			<div class="clear"></div>
+
+			<div id="section-gallery" class="page-section nopadding nomargin">
+
+				<div class="container topmargin bottommargin-lg center clearfix">
+
+					<h3 class="ls1 t400" style="font-size: 32px; margin-bottom: 10px;">App Screenshots</h3>
+					<p class="lead divcenter" style="max-width: 600px">Take a look at how you can keep track of your
+						time in a way that makes sense</p>
+					<a href="#" class="button button-circle capitalize">Check All</a>
+
+				</div>
+
+				<div class="owl-carousel owl-carousel-full image-carousel carousel-widget bottommargin" data-margin="20"
+					data-center="true" data-loop="true" data-nav="false" data-pagi="true" data-items-xs="2"
+					data-items-sm="2" data-items-md="4" data-items-lg="4" data-items-xl="6" data-stage-padding="30"
+					data-lightbox="gallery">
+
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-7.jpg"><img
+								src="./images/gallery/img-7.jpg" alt="Image 7"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-2.jpg"><img
+								src="./images/gallery/img-2.jpg" alt="Image 2"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-3.jpg"><img
+								src="./images/gallery/img-3.jpg" alt="Image 3"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-1.jpg"><img
+								src="./images/gallery/img-1.jpg" alt="Image 1"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-4.jpg"><img
+								src="./images/gallery/img-4.jpg" alt="Image 4"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-5.jpg"><img
+								src="./images/gallery/img-5.jpg" alt="Image 5"></a>
+					</div>
+					<div class="oc-item">
+						<a data-lightbox="gallery-item" href="./images/gallery/img-6.jpg"><img
+								src="./images/gallery/img-6.jpg" alt="Image 6"></a>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="section center nobottommargin nobg" style="margin-top: -40px;">
+				<a href="#modal-login" data-lightbox="inline" class="button button-large button-black capitalize"
+					style="border-radius: 23px;">Login Now</a>
+				<a href="#modal-get-started" data-scrollto="#section-pricing" data-easing="easeInOutExpo"
+					data-speed="1250" data-offset="160" class="button button-large capitalize"
+					style="border-radius: 23px;">Try it
+					Free</a>
+
+				<div class="clear bottommargin"></div>
+
+			</div>
+	</div>
+
+	<div class="section notopmargin footer-stick"
+		style="padding-top: 10px;background-color: #F8FAFB; border-top: 1px solid #E5E5E5;">
+		<div class="container clearfix">
+
+			<div class="row clearfix">
+				<div class="col-lg-4">
+					<div class="app-footer-features"><i class="icon-line2-globe-alt"></i>
+						<h5 class="font-body"><strong>Free Training</strong><span> &amp; 24-hour coverage</span>
+						</h5>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="app-footer-features"><i class="icon-line2-notebook"></i>
+						<h5 class="font-body"><strong>Scheduling. Anywhere. Anytime.</strong></h5>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="app-footer-features"><i class="icon-line2-lock"></i>
+						<h5 class="font-body"><span>Serious about</span> <strong>Security</strong>
+							<span>&amp;</span> <strong>Privacy</strong></h5>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	</div>
+
+	</section><!-- #content end -->
+
+	<!-- Footer
+		============================================= -->
+	<footer id="footer" style="background-color: #FFF;">
+
+		<!-- Copyrights	============================================= -->
+		<div id="copyrights" class="nobg">
+
+			<div class="container clearfix">
+
+				<div class="copyright_text" style="text-align: center;">
+					Copyrights &copy; 2019 All Rights Reserved by itsGuillermo<br>
+				</div>
+
+			</div>
+
+		</div><!-- #copyrights end -->
+
+	</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script src="./js/jquery.js"></script>
+	<script src="./js/plugins.js"></script>
+	<script src="./js/pricing.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="./js/functions.js"></script>
+
+</body>

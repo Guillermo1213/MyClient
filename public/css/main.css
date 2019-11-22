@@ -37,7 +37,7 @@ header{
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  background-image: linear-gradient(0deg, rgba(245,247,250,1) 0%, rgba(245,247,250,1) 10%, rgba(195,207,226,0.80) 34%), url("../images/calendar.png");
+  /* background-image: linear-gradient(0deg, rgba(245,247,250,1) 0%, rgba(245,247,250,1) 10%, rgba(195,207,226,0.80) 34%), url("../images/calendar.png"); */
   /* background-image: url("https://images.pexels.com/photos/760720/pexels-photo-760720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"); */
   /* filter: grayscale(10%); */
   min-height: 100%;
